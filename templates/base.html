@@ -1,0 +1,24 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            My Title
+        {% endblock %}
+    </title>
+</head>
+<body>
+<h2>{{ page_title }}</h2>
+
+{% bootstrap_messages %}
+
+{% block content %}
+    Dummy content
+{% endblock %}
+</body>
+</html>

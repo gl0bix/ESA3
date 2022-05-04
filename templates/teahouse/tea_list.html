@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+    {% for tea in object_list %}
+        <p>{{ tea }}</p>
+    {% endfor %}
+{% endblock %}
