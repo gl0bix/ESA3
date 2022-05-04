@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from teahouse import views
 from teahouse.views import TeaList
 
 urlpatterns = [
+    path('', TeaList.as_view()),
     path('admin/', admin.site.urls),
-    path('teahouse/teas/', TeaList.as_view())
+    path('teahouse/teas/', TeaList.as_view()),
+    path('teahouse/preperation/<int:pk_id>', views.show_prep, name='preperation')
 ]

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Teaware</th>
+            <td>{{ preperation.teaware }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><span>{{ preperation.description }}</span></td>
+        </tr>
+        <tr>
+            <th>Gramms per 100ml</th>
+            <td>{{ preperation.gramms_per_100ml }}g</td>
+        </tr>
+        <tr>
+            <th>Steepings</th>
+            <td>{{ preperation.steepings }}</td>
+        </tr>
+        <tr>
+            <th>Steeptime</th>
+            <td>{{ preperation.steeptime_in_sec }}s</td>
+        </tr>
+        <tr>
+            <th>Steeping temperature</th>
+            <td>{{ preperation.temperature }}°C</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

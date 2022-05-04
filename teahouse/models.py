@@ -39,12 +39,12 @@ class Preperation(models.Model):
 
     def __str__(self):
         return f"""
-        Teaware: {self.teaware}"
-        Description: {self.description}
-        {self.gramms_per_100ml} per 100ml
-        max. steepings: {self.steepings}
-        steeptime: {self.steeptime_in_sec}s
-        temperature: {self.temperature}°C
+        Teaware: {self.teaware} \n
+        Description: {self.description} \n
+        {self.gramms_per_100ml} per 100ml \n
+        max. steepings: {self.steepings} \n
+        steeptime: {self.steeptime_in_sec}s \n
+        temperature: {self.temperature}°C \n
         """
 
 
@@ -54,17 +54,14 @@ class Tea(models.Model):
     cultivar = models.CharField(max_length=60)
     origin = models.ForeignKey(Origin, on_delete=models.CASCADE)
     harvested = models.DateField()
-    preperation = models.ManyToManyField(Preperation)
+    preperations = models.ManyToManyField(Preperation)
 
     def __str__(self):
         origin_str = f"from {self.origin.region} in {self.origin.country}"
-        preperation_str = "\n- ".join([p.__str__() for p in self.preperation.all()])
 
         return f"""
-        {self.name} - {self.category[1]}
-        Cultivar: {self.cultivar}
-        Origin: {origin_str}
-        Harvested: {self.harvested.isocalendar()}
-        Recommended Preperations:
-        {preperation_str}
+        {self.name} - {self.category}
+        Cultivar: {self.cultivar},
+        {origin_str},
+        Harvested: {self.harvested.isoformat()}
         """

@@ -5,7 +5,34 @@
 {% endblock %}
 
 {% block content %}
-    {% for tea in object_list %}
-        <p>{{ tea }}</p>
-    {% endfor %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Categorie</th>
+            <th>Cultivar</th>
+            <th>Origin</th>
+            <th>Harvested</th>
+            <th>Preperations</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for tea in object_list %}
+            <tr>
+                <td>{{ tea.name }}</td>
+                <td>{{ tea.category }}</td>
+                <td>{{ tea.cultivar }}</td>
+                <td>{{ tea.origin }}</td>
+                <td>{{ tea.harvested.isoformat }}</td>
+                <td>
+                    <ul>
+                        {% for p in tea.preperations.all %}
+                            <li><a href={% url 'preperation' p.id %}>{{ p.teaware }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
