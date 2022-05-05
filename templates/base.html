@@ -13,12 +13,13 @@
     </title>
 </head>
 <body>
-<h2>{{ page_title }}</h2>
+<div class="container">
+    <h2>{{ page_title }}</h2>
 
+    {% block content %}
+        Dummy content
+    {% endblock %}
+</div>
 {% bootstrap_messages %}
-
-{% block content %}
-    Dummy content
-{% endblock %}
 </body>
 </html>

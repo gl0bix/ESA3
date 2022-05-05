@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+    <ul>
+        <li>
+            <a href="{% url 'admin:index' %}">Admin</a>
+        </li>
+        <li>
+            <a href="{% url 'teas' %}">Teas</a>
+        </li>
+    </ul>
+{% endblock %}

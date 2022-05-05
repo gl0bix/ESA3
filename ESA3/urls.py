@@ -20,8 +20,9 @@ from teahouse import views
 from teahouse.views import TeaList
 
 urlpatterns = [
-    path('', TeaList.as_view()),
-    path('admin/', admin.site.urls),
-    path('teahouse/teas/', TeaList.as_view()),
-    path('teahouse/preperation/<int:pk_id>', views.show_prep, name='preperation')
+    path('', views.home),
+    path('admin/', admin.site.urls, name='admin'),
+    path('teahouse/teas/', TeaList.as_view(), name='teas'),
+    path('teahouse/preperation/<int:pk_id>', views.show_prep, name='preperation'),
+    path('<pk>/update', views.TeaUpdate.as_view(), name='tea_update')
 ]
